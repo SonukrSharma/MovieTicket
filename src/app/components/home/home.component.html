@@ -1,0 +1,32 @@
+
+ <div class="background">
+    <div class="hnav"></div>
+  <div class="container">
+ 
+     <h1>
+         Now Showing!!!
+     </h1>
+     
+         <div class="grid-container" >
+             <div class="card" *ngFor="let i of movie">
+                 <div class="card"  style="background-image: url({{i.poster}}); ">
+                     <!-- <img class="card-img-top" src="" alt="Card image cap" > -->
+                     <div class="title">
+                         <p class="mname">{{i.name}}</p>
+                         <div class="text-box">
+                             <p>{{i.genre}}</p>
+                             <p>{{i.certification}}</p>
+                             <p>{{i.rtime}}</p>
+                             <p> {{i.rating}}</p>
+                         </div>
+                         <p style="margin-left:20px">{{i.cast}}</p><br>
+                         <p style="margin-left:10px; text-align: center;">Tickets Available:{{i.tickets}}</p>
+                         <button class="btn" (click)="Onclick(i)">Book Now</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+  
+ 

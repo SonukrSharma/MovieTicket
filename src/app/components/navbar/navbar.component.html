@@ -1,0 +1,18 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+ </head>
+ <nav style="z-index: 2;">
+    <div class="logo" style="cursor: pointer;">
+       <p routerLink="/home" style="margin-top:10px;">SKS Cinema</p>
+    </div>
+    <input type="checkbox" id="click">
+    <label for="click" class="menu-btn">
+    <i class="fas fa-bars"></i>
+    </label>
+    <ul>
+       <li><a href="#">Home</a></li>
+       <!-- <li><a href="#">Services</a></li> -->
+       <li><a style="cursor: pointer;" (click)="OnClick()">Ticket Info</a></li>
+       <li><a routerLink="/about">About</a></li>
+    </ul>
+ </nav>

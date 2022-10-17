@@ -1,0 +1,32 @@
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<!-- <div class="hnav"></div> -->
+<div class="bd" >
+    
+    <div class="card" *ngIf="movie">
+        <div class="card-thumnail">
+            <img src="{{movie.poster}}" alt="" class="poster">
+        </div>
+        <div class="card-body">
+            <div class="card-title">
+                <span >{{movie.name}}</span><br>
+            </div>
+            <p class="card-description">Synopsis: {{movie.summary}}</p>
+            <span>Runtime: {{movie.rtime}}</span>
+            <span>Genre: {{movie.genre}}</span>
+            <span>Certification: {{movie.certification}}</span>
+            <span>Cast: {{movie.cast}}</span>
+            <span>Rating: {{movie.rating}}</span>
+            <span>Tickets Available: {{movie.tickets}}</span>
+
+            <span>
+            <button class="trailer" (click)="Onclick(movie)">Buy Now</button>
+            <a href="{{movie.trailer}}" target="_blank"><button class="trailer" style="margin-left:10px;"><i class="fas fa-play"> </i> Watch Trailer</button></a>
+            </span>
+        </div>
+    </div>
+</div>
+    
+  

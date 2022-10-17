@@ -1,0 +1,57 @@
+<div class="hnav"></div>
+<mat-paginator [length]="10"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page">
+</mat-paginator>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="movieData">  
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+  
+  
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Name </th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;">{{element.name}}</td>
+  </ng-container>
+  
+  <ng-container matColumnDef="movie">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Movie </th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.movie}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Email </th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.email}} </td>
+  </ng-container>
+  
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="mobile">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Mobile </th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.mobile}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="ntickets">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Tickets </th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.ntickets}} </td>
+  </ng-container>
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Date </th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.date}} </td>
+  </ng-container>
+  <ng-container matColumnDef="show">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Show </th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.show}} </td>
+  </ng-container>
+  
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef style="text-align: center;"> Action </th>
+    <td mat-cell *matCellDef="let element" style="text-align: center;"> <button class="btn btn-primary" (click)="OnClick(element)">Edit Booking</button><button class="btn btn-danger" style="margin: 5px;" (click)="OnCancel(element.id)">Cancel Booking</button></td>
+  </ng-container>
+  
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+  
