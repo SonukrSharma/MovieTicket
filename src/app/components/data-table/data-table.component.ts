@@ -16,6 +16,7 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 export class DataTableComponent implements OnInit {
   movieData:any
   movie:any
+  userdata:any
   displayedColumns: string[] = ['id', 'name','movie', 'email', 'mobile','ntickets','date','show','action'];
   dataSource:MatTableDataSource<any>=new MatTableDataSource<any>();
   
@@ -36,10 +37,16 @@ export class DataTableComponent implements OnInit {
   }
   OnCancel(id:string){
     this.openDialog()
-    let userdata:any=this.service.getEditable(parseInt(id))
-    this.movie=this.service.getData(userdata.movieID)
-    this.movie.tickets=this.movie.tickets+userdata.ntickets
-    this.service.updateCancellation(this.movie,userdata.movieID)
+    this.service.getEditable(id).subscribe(res=>{
+      this.userdata=res
+      let user=this.userdata
+      this.service.getData(user.movieID).subscribe(response=>{
+        this.movie=response
+        let mv=this.movie
+        mv.tickets=mv.tickets+user.ntickets
+        this.service.updateCancellation(this.movie,user.movieID)
+      })
+    })
     this.service.cancelBooking(id).subscribe(res=>{this.movieData=res});
   }
   openDialog(){
