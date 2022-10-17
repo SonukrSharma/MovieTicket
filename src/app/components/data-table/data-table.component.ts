@@ -35,7 +35,7 @@ export class DataTableComponent implements OnInit {
   OnClick(data:any){
     this.route.navigate(["editTicketInfo/"+data.id]);
   }
-  OnCancel(id:string){
+  OnCancel(id:number){
     this.openDialog()
     this.service.getEditable(id).subscribe(res=>{
       this.userdata=res
