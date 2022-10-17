@@ -39,7 +39,7 @@ export class PostService {
   updateUserData(data:any,id:string):Observable<any>{
     return this.httpClient.put((this.udataURL+"/"+id),data);
   }
-  cancelBooking(id:string){
+  cancelBooking(id:number){
     return this.httpClient.delete(this.udataURL+"/"+id)
   }
   
